@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             ios:Page.UseSafeArea="true"
+             x:Class="Fodinha.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Ice}">
+
+    <StackLayout>
+        <StackLayout x:Name="AddPlayersStack"
+                     IsVisible="True">
+            <Label Text="Adicionar jogadores"
+                   FontAttributes="Bold"
+                   FontSize="26"
+                   Margin="20"
+                   TextColor="{StaticResource DarkBlue}"/>
+            <Entry x:Name="NameOfPlayerEntry"
+                   Margin="20,0"
+                   Placeholder="Nome do jogador"/>
+            <Button Text="+ adicionar mais jogadores"
+                    Clicked="AddNewPlayer"
+                    FontAttributes="Bold"
+                    Margin="20,8"
+                    Padding="16,8"
+                    TextColor="White"
+                    BackgroundColor="{StaticResource MediumBlue}"/>
+            <Label x:Name="PlayersLabel"
+                   IsVisible="false"
+                   Margin="20,20,0,0"
+                   FontSize="14"
+                   TextColor="{StaticResource DarkBlue}"/>
+            <ListView x:Name="ListOfPlayers"
+                      BackgroundColor="{StaticResource Ice}"
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding Name}"
+                                   FontAttributes="Bold"
+                                   Padding="20,0,0,0"
+                                   FontSize="20"
+                                   TextColor="{StaticResource DarkBlue}"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Tudo pronto!"
+                    Clicked="FinishAddPlayers"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    Margin="20,8"
+                    Padding="16,8"
+                    CornerRadius="20"
+                    TextColor="{StaticResource Ice}"
+                    BackgroundColor="{StaticResource DarkBlue}"/>
+            <Label FontSize="Small"
+                    Margin="20,0,20,20"
+                    TextColor="#6c757d"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="End">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="&#x2139;"/>
+                        <Span Text=" Fodinha é um jogo que pode ser jogado com 3 a 6 jogadores (é possível jogar com mais, só que é necessário utilizar dois ou mais baralhos). Clique aqui e acesse as regras."/>
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+        <StackLayout x:Name="AddLifePlayersStack"
+                     IsVisible="False">
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label Text="Adicionar vida dos jogadores"
+                       FontAttributes="Bold"
+                       FontSize="26"
+                       Margin="20"
+                       TextColor="{StaticResource DarkBlue}"/>
+                <Entry x:Name="LifeOfPlayerEntry"
+                       Margin="20,0"
+                       Placeholder="Vida dos jogadores"/>
+                <Button Text="Tudo pronto!"
+                        Clicked="AddLifePlayers"
+                        FontAttributes="Bold"
+                        Margin="20,8"
+                        Padding="16,8"
+                        TextColor="White"
+                        BackgroundColor="{StaticResource DarkBlue}"/>
+                <Label FontSize="Small"
+                       Margin="40,0"
+                       TextColor="#6c757d"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="EndAndExpand">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="&#x2139;"/>
+                            <Span Text=" Cada participante começa o jogo com um número x de vidas e vai perdendo cada uma, conforme erra o palpite nas rodadas. Normalmente cada jogador começa com 5 vidas."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

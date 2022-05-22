@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fodinha.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- colors -->
+            <Color x:Key="DarkBlue">#084b83</Color>
+            <Color x:Key="MediumBlue">#42bfdd</Color>
+            <Color x:Key="LightBlue">#e0f5f4</Color>
+            <Color x:Key="Ice">#f0f6f6</Color>
+            <Color x:Key="Pink">#ff66b3</Color>
+
+            <!-- buttons -->
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

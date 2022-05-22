@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             ios:Page.UseSafeArea="true"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Ice}"
+             x:Class="Fodinha.WinnerPage">
+
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="CenterAndExpand">
+            <Image Source="ic_trophy.png"
+                   WidthRequest="200"/>
+            <Label x:Name="WinningPlayerLabel"
+                   Margin="0,20"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   FontSize="26"
+                   TextColor="{StaticResource DarkBlue}"/>
+            <Button Text="Novo jogo"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    Margin="20,8"
+                    Padding="16,8"
+                    CornerRadius="20"
+                    TextColor="{StaticResource Ice}"
+                    BackgroundColor="{StaticResource DarkBlue}"
+                    Clicked="NewGame"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

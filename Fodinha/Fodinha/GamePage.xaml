@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             ios:Page.UseSafeArea="true"
+             x:Class="Fodinha.GamePage"
+             BackgroundColor="{StaticResource Ice}">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Jogando..."
+                   FontAttributes="Bold"
+                   FontSize="26"
+                   Margin="20"
+                   TextColor="{StaticResource DarkBlue}"/>
+            <Grid Margin="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="{Binding Rounds}"
+                       VerticalTextAlignment="Center"
+                       Grid.Column="0"
+                       Grid.Row="0"/>
+                <ImageButton Source="ic_add.png"
+                             WidthRequest="38"
+                        Command="{Binding AddRoundCommand}"
+                        Grid.Row="0"
+                        Grid.Column="1"/>
+                <ImageButton Source="ic_subtract.png"
+                             WidthRequest="38"
+                        Command="{Binding SubtractRoundCommand}"
+                        Grid.Row="0"
+                        Grid.Column="2"/>
+            </Grid>
+            <ListView ItemsSource="{Binding Players}"
+                      BackgroundColor="{StaticResource Ice}"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="6"
+                                   Margin="20,4"
+                                   CornerRadius="8"
+                                   HasShadow="False"
+                                   BackgroundColor="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding Name}"
+                                           TextColor="{StaticResource DarkBlue}"
+                                           FontAttributes="Bold"
+                                           FontSize="20"
+                                           Grid.Row="0"
+                                           Grid.ColumnSpan="2"/>
+                                    <Label Grid.Row="1"
+                                           Grid.Column="0"
+                                           VerticalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="&#x2764;"/>
+                                                <Span Text=" Vidas: "/>
+                                                <Span Text="{Binding Lives}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Image Source="ic_add.png"
+                                           WidthRequest="36"
+                                           Grid.Row="1"
+                                           Grid.Column="1">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="{Binding}"
+                                                                  Tapped="AddLife"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="ic_subtract.png"
+                                           WidthRequest="36"
+                                           Grid.Row="1"
+                                           Grid.Column="2">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="{Binding}"
+                                                                  Tapped="SubtractLife"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Label Grid.Row="2"
+                                           Grid.Column="0"
+                                           VerticalTextAlignment="Center">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="&#x1F4AC;"/>
+                                                <Span Text=" Palpites: "/>
+                                                <Span Text="{Binding Guess}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Image Source="ic_add.png"
+                                           WidthRequest="36"
+                                           Grid.Row="2"
+                                           Grid.Column="1">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="{Binding}"
+                                                                  Tapped="AddGuess"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image Source="ic_subtract.png"
+                                           WidthRequest="36"
+                                           Grid.Row="2"
+                                           Grid.Column="2">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="{Binding}"
+                                                                  Tapped="SubtractGuess"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <StackLayout Padding="0,20">
+                        <Label FontSize="Small"
+                               Margin="40,0"
+                               TextColor="#6c757d"
+                               HorizontalTextAlignment="Center"
+                               VerticalOptions="End">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="&#x2139;"/>
+                                    <Span Text=" Subtraia a vida dos jogadores até restar o vencedor."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </ListView.Footer>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
