@@ -1,6 +1,8 @@
 # Fodinha :black_joker:
 Aplicativo desenvolvido em Xamarin.Forms para contabilizar os pontos e auxiliar os jogadores no jogo de cartas Fodinha. :spades: :diamonds: :clubs: :hearts:
 
+Como jogar? Clique aqui https://copag.com.br/blog/detalhes/fodinha
+
 ## Plugins e Framework
 #### Plugins
 
