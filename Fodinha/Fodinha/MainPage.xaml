@@ -49,7 +49,7 @@
                     </FormattedString>
                 </Label.FormattedText>
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    <TapGestureRecognizer Tapped="OpenManual"/>
                 </Label.GestureRecognizers>
             </Label>
         </StackLayout>
@@ -60,6 +60,7 @@
                        Style="{StaticResource TitleLabel}"/>
                 <Entry x:Name="LifeOfPlayerEntry"
                        Margin="20,0"
+                       Keyboard="Numeric"
                        Placeholder="Vida dos jogadores"/>
                 <Button Text="Tudo pronto!"
                         Clicked="AddLifePlayers"
