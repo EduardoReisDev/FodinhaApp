@@ -10,8 +10,9 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Jogando..."
+                   Margin="20,20,20,0"
                    Style="{StaticResource TitleLabel}"/>
-            <Grid Margin="20,0">
+            <Grid Margin="20,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
@@ -23,14 +24,14 @@
                        Grid.Row="0"/>
                 <ImageButton Source="ic_add.png"
                              WidthRequest="38"
-                        Command="{Binding AddRoundCommand}"
-                        Grid.Row="0"
-                        Grid.Column="1"/>
+                             Command="{Binding AddRoundCommand}"
+                             Grid.Row="0"
+                             Grid.Column="1"/>
                 <ImageButton Source="ic_subtract.png"
                              WidthRequest="38"
-                        Command="{Binding SubtractRoundCommand}"
-                        Grid.Row="0"
-                        Grid.Column="2"/>
+                             Command="{Binding SubtractRoundCommand}"
+                             Grid.Row="0"
+                             Grid.Column="2"/>
             </Grid>
             <ListView ItemsSource="{Binding Players}"
                       BackgroundColor="{StaticResource Ice}"

@@ -25,9 +25,9 @@ namespace Fodinha.ViewModel
 
 		public GamePageViewModel()
 		{
-			PopulateList();
-
 			game = Game.Instance;
+
+			PopulateList();
 
 			Rounds = "Rodada de número " + game.Rounds.ToString();
 
