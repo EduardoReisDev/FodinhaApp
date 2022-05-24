@@ -92,7 +92,7 @@ namespace Fodinha
             }
         }
 
-        async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void OpenManual(object sender, EventArgs e)
         {
             try
             {

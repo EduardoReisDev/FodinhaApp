@@ -21,11 +21,15 @@ namespace Fodinha.ViewModel
         public ICommand SubtractRoundCommand { get; private set; }
 
         private string rounds;
+		private readonly Game game;
 
 		public GamePageViewModel()
 		{
+			game = Game.Instance;
+
 			PopulateList();
-			Rounds = "Rodada de número " + Game.Instance.Rounds.ToString();
+
+			Rounds = "Rodada de número " + game.Rounds.ToString();
 
 			AddRoundCommand = new Command(
 				execute: () =>
@@ -44,14 +48,14 @@ namespace Fodinha.ViewModel
 		{
 			if (id > 0)
             {
-				Player player = Game.Instance.Players.FirstOrDefault(x => x.Id == id);
+				Player player = game.Players.FirstOrDefault(x => x.Id == id);
 
 				if (player != null)
 				{
 					player.Guess++;
 
-					Game.Instance.Players.Remove(player);
-					Game.Instance.Players.Add(player);
+					game.Players.Remove(player);
+					game.Players.Add(player);
 
 					PopulateList();
 				}
@@ -62,7 +66,7 @@ namespace Fodinha.ViewModel
 		{
 			if (id > 0)
 			{
-				Player player = Game.Instance.Players.FirstOrDefault(x => x.Id == id);
+				Player player = game.Players.FirstOrDefault(x => x.Id == id);
 
 				if (player != null)
 				{
@@ -74,20 +78,19 @@ namespace Fodinha.ViewModel
 
                         if (playerWasEliminated)
                         {
-							Game.Instance.Players.Remove(player);
+							game.Players.Remove(player);
 
-							if(Game.Instance.Players.Count() == 1)
+							if(game.Players.Count() == 1)
                             {
-								await Application.Current.MainPage.DisplayAlert(string.Empty, Game.Instance.Players.FirstOrDefault().Name + " ganhou!!", "Ok");
-
+								await Application.Current.MainPage.DisplayAlert(string.Empty, game.Players.FirstOrDefault().Name + " ganhou!!", "Ok");
 								await Application.Current.MainPage.Navigation.PushAsync(new WinnerPage());
 							}
 						}
 					}
                     else
                     {
-						Game.Instance.Players.Remove(player);
-						Game.Instance.Players.Add(player);
+						game.Players.Remove(player);
+						game.Players.Add(player);
 					}
 
 					PopulateList();
@@ -99,14 +102,14 @@ namespace Fodinha.ViewModel
 		{
 			if (id > 0)
 			{
-				Player player = Game.Instance.Players.FirstOrDefault(x => x.Id == id);
+				Player player = game.Players.FirstOrDefault(x => x.Id == id);
 
 				if(player != null)
                 {
 					player.Lives++;
 
-					Game.Instance.Players.Remove(player);
-					Game.Instance.Players.Add(player);
+					game.Players.Remove(player);
+					game.Players.Add(player);
 
 					PopulateList();
 				}
@@ -117,14 +120,14 @@ namespace Fodinha.ViewModel
         {
 			if (id > 0)
 			{
-				Player player = Game.Instance.Players.FirstOrDefault(x => x.Id == id);
+				Player player = game.Players.FirstOrDefault(x => x.Id == id);
 
 				if (player != null)
 				{
 					player.Guess--;
 
-					Game.Instance.Players.Remove(player);
-					Game.Instance.Players.Add(player);
+					game.Players.Remove(player);
+					game.Players.Add(player);
 
 					PopulateList();
 				}
@@ -135,7 +138,7 @@ namespace Fodinha.ViewModel
         {
 			Players.Clear();
 
-			foreach (Player player in Game.Instance.Players.OrderBy(x => x.Name))
+			foreach (Player player in game.Players.OrderBy(x => x.Name))
             {
 				Players.Add(player);
             }
@@ -143,17 +146,17 @@ namespace Fodinha.ViewModel
 
         private void SubtractRound()
         {
-			Game.Instance.Rounds--;
-			Rounds = "Rodada de número " + Game.Instance.Rounds.ToString();
+			game.Rounds--;
+			Rounds = "Rodada de número " + game.Rounds.ToString();
 		}
 
 		private async void AddRound()
         {
-			await Application.Current.MainPage.DisplayAlert("Fim da rodada " + Game.Instance.Rounds, "Não se esqueça de atualizar a vida e o palpite dos jogadores.", "Ok");
+			await Application.Current.MainPage.DisplayAlert("Fim da rodada " + game.Rounds, "Não se esqueça de atualizar a vida e o palpite dos jogadores.", "Ok");
 
-			Game.Instance.Rounds++;
+			game.Rounds++;
 
-			Rounds = "Rodada de número " + Game.Instance.Rounds.ToString();
+			Rounds = "Rodada de número " + game.Rounds.ToString();
 		}
     }
 }
