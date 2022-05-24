@@ -13,19 +13,9 @@
             <Image Source="ic_trophy.png"
                    WidthRequest="200"/>
             <Label x:Name="WinningPlayerLabel"
-                   Margin="0,20"
-                   FontAttributes="Bold"
-                   HorizontalTextAlignment="Center"
-                   FontSize="26"
-                   TextColor="{StaticResource DarkBlue}"/>
+                   Style="{StaticResource TitleLabel}"/>
             <Button Text="Novo jogo"
-                    HorizontalOptions="Center"
-                    FontAttributes="Bold"
-                    Margin="20,8"
-                    Padding="16,8"
-                    CornerRadius="20"
-                    TextColor="{StaticResource Ice}"
-                    BackgroundColor="{StaticResource DarkBlue}"
+                    Style="{StaticResource CornerButton}"
                     Clicked="NewGame"/>
         </StackLayout>
     </ContentPage.Content>

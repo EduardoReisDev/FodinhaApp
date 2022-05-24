@@ -10,10 +10,45 @@
             <Color x:Key="MediumBlue">#42bfdd</Color>
             <Color x:Key="LightBlue">#e0f5f4</Color>
             <Color x:Key="Ice">#f0f6f6</Color>
-            <Color x:Key="Pink">#ff66b3</Color>
+            <Color x:Key="Gray">#6c757d</Color>
+
+            <!-- labels -->
+            <Style x:Key="TitleLabel" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="26"/>
+                <Setter Property="Margin" Value="20"/>
+                <Setter Property="TextColor" Value="{StaticResource DarkBlue}"/>
+            </Style>
+
+            <Style x:Key="InfoLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="Margin" Value="20,4"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="TextColor" Value="{StaticResource Gray}"/>
+            </Style>
 
             <!-- buttons -->
+            <Style x:Key="BaseButton" TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="20,8"/>
+                <Setter Property="Padding" Value="16,8"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="4"/>
+            </Style>
 
+            <Style x:Key="DarkButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkBlue}"/>
+            </Style>
+
+            <Style x:Key="MediumButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="BackgroundColor" Value="{StaticResource MediumBlue}"/>
+            </Style>
+
+            <Style x:Key="CornerButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkBlue}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

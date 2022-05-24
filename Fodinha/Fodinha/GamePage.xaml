@@ -10,10 +10,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Jogando..."
-                   FontAttributes="Bold"
-                   FontSize="26"
-                   Margin="20"
-                   TextColor="{StaticResource DarkBlue}"/>
+                   Style="{StaticResource TitleLabel}"/>
             <Grid Margin="20,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -129,11 +126,7 @@
                 </ListView.ItemTemplate>
                 <ListView.Footer>
                     <StackLayout Padding="0,20">
-                        <Label FontSize="Small"
-                               Margin="40,0"
-                               TextColor="#6c757d"
-                               HorizontalTextAlignment="Center"
-                               VerticalOptions="End">
+                        <Label Style="{StaticResource InfoLabel}">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="&#x2139;"/>
