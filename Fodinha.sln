@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1700.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fodinha.Android", "Fodinha\Fodinha.Android\Fodinha.Android.csproj", "{8CEC3DAE-2581-4017-B53A-A64FF713EAC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fodinha", "Fodinha\Fodinha.Android\Fodinha.csproj", "{8CEC3DAE-2581-4017-B53A-A64FF713EAC6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fodinha.iOS", "Fodinha\Fodinha.iOS\Fodinha.iOS.csproj", "{17FF9B2F-E6AE-47C7-AE4B-A3FD5E4D2227}"
 EndProject
